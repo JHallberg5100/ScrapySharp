@@ -9,7 +9,7 @@ namespace ScrapySharp.Network
 {
     public class RawResponse
     {
-        internal RawResponse(Version httpVersion, HttpStatusCode statusCode, string statusDescription, NameValueCollection headers, byte[] body, Encoding encoding)
+        public RawResponse(Version httpVersion, HttpStatusCode statusCode, string statusDescription, NameValueCollection headers, byte[] body, Encoding encoding)
         {
             Encoding = encoding;
             HttpVersion = httpVersion;

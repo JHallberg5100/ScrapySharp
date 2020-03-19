@@ -6,7 +6,7 @@ namespace ScrapySharp.Network
 {
     public class RawRequest
     {
-        internal RawRequest(string verb, Uri url, Version httpVersion, List<KeyValuePair<string, string>> headers, byte[] body, Encoding encoding)
+        public RawRequest(string verb, Uri url, Version httpVersion, List<KeyValuePair<string, string>> headers, byte[] body, Encoding encoding)
         {
             Encoding = encoding;
             Verb = verb;
