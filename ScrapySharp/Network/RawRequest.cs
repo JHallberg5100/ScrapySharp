@@ -16,12 +16,12 @@ namespace ScrapySharp.Network
             Body = body;
         }
 
-        public string Verb { get; private set; }
-        public Uri Url { get; private set; }
-        public Version HttpVersion { get; private set; }
-        public List<KeyValuePair<string, string>> Headers { get; private set; }
-        public byte[] Body { get; private set; }
-        public Encoding Encoding { get; private set; }
+        public string Verb { get; set; }
+        public Uri Url { get; set; }
+        public Version HttpVersion { get; set; }
+        public List<KeyValuePair<string, string>> Headers { get; set; }
+        public byte[] Body { get; set; }
+        public Encoding Encoding { get; set; }
 
         public override string ToString()
         {

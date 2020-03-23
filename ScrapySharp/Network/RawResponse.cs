@@ -18,13 +18,22 @@ namespace ScrapySharp.Network
             Body = body;
             Headers = headers.AllKeys.Select(k => new KeyValuePair<string, string>(k, headers[k])).ToList();
         }
+        public RawResponse(Version httpVersion, int statusCode, string statusDescription, List<KeyValuePair<string, string>> headers, byte[] body, Encoding encoding)
+        {
+            Encoding = encoding;
+            HttpVersion = httpVersion;
+            StatusCode = statusCode;
+            StatusDescription = statusDescription;
+            Body = body;
+            Headers = headers;
+        }
 
-        public Version HttpVersion { get; private set; }
-        public int StatusCode { get; private set; }
-        public string StatusDescription { get; private set; }
-        public List<KeyValuePair<string, string>> Headers { get; private set; }
-        public byte[] Body { get; private set; }
-        public Encoding Encoding { get; private set; }
+        public Version HttpVersion { get; set; }
+        public int StatusCode { get; set; }
+        public string StatusDescription { get; set; }
+        public List<KeyValuePair<string, string>> Headers { get; set; }
+        public byte[] Body { get;  set; }
+        public Encoding Encoding { get; set; }
 
         public override string ToString()
         {
@@ -34,6 +43,7 @@ namespace ScrapySharp.Network
             foreach (var header in Headers)
                 builder.AppendFormat("{0}: {1}\r\n", header.Key, header.Value);
             builder.AppendFormat("\r\n");
+                
 
             if (Body != null && Body.Length > 0)
                 builder.AppendFormat("{0}\r\n", Encoding.ASCII.GetString(Body));
