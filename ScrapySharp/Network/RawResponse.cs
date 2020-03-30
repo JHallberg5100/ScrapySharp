@@ -45,6 +45,7 @@ namespace ScrapySharp.Network
             builder.AppendFormat("\r\n");
                 
 
+
             if (Body != null && Body.Length > 0)
                 builder.AppendFormat("{0}\r\n", Encoding.ASCII.GetString(Body));
 
